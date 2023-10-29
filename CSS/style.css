@@ -16,15 +16,47 @@
   --bottom-bg-gradient: hsl(241, 81%, 54%);
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
 .container {
   top: 50%;
   left: 50%;
   display: flex;
   position: absolute;
-  min-width: 30%;
+  min-width: 41%;
   border-radius: 25px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.75);
   box-shadow: 0px 15px 25px 0px hsl(224, 18%, 88%);
+}
+
+@media (max-width: 375px) {
+  .container {
+    position: static;
+    transform: translate(0);
+    flex-direction: column;
+    width: 100vw;
+    border-radius: 0;
+  }
+  .container .right-side.right-side {
+    width: 100%;
+    border-radius: 0px 0px 25px 25px;
+  }
+  .container .left-side.left-side { 
+    width: 100%;
+    border-radius: 0;
+}
+.container .right-side .compliment p {
+  max-width: 30ch;
+}
+.reaction, 
+.memory, 
+.verbal, 
+.visual {
+  margin-bottom: 20px;
+}
 }
 
 .container .right-side {
@@ -65,7 +97,6 @@
   color: hsl(0, 0%, 100%);
   font-size: 55px;
   font-weight: 700;
-  /* margin-bottom: -5px; */
 }
 
 .right-side .overall-score small {
@@ -93,9 +124,8 @@
   padding: 25px 30px;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: space-around;
-  width: 55%;
+  min-width: 55%;
 }
 
 .container .left-side .title {
@@ -173,6 +203,11 @@ svg {
   font-weight: 500;
   color: hsl(0, 0%, 100%);
   background-color: hsl(224, 30%, 27%);
+  cursor: pointer;
+}
+
+.left-side button:active {
+  background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
 }
 
 .left-side span {
